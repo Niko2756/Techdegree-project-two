@@ -1,12 +1,14 @@
 import constants
-import application
+import fuctions
 
 def main():
 	data = constants.PLAYERS.copy()
 	theTeams = constants.TEAMS.copy()
-	dataThatHasBeenCleaned = application.clean_the_data(data)
+	dataThatHasBeenCleaned = fuctions.clean_the_data(data)
 	#print(dataThatHasBeenCleaned)
-	theTeamsBalanced = application.balance_the_teams(theTeams, dataThatHasBeenCleaned)
+	theTeamsBalanced, num_players_team = fuctions.balance_the_teams(theTeams, dataThatHasBeenCleaned)
+	theTeamsBalancedButJustNames = fuctions.info_stripper_leave_just_name(theTeamsBalanced, num_players_team)
+	print()
 
 
 

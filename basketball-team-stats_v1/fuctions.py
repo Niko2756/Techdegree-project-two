@@ -24,12 +24,27 @@ def balance_the_teams(theTeams, dataThatHasBeenCleaned):
             teamRoster.append(dataThatHasBeenCleaned.pop())
         theTeamsBalanced.append(teamRoster)
 
-    return theTeamsBalanced
+    return theTeamsBalanced, num_players_team
+
+#print(theTeamsBalanced[0][5].get("name"))
+
+
+def info_stripper_leave_just_name(theTeamsBalanced, num_players_team):
+    theTeamsBalancedButJustNames = []
+    for x in range(len(theTeamsBalanced)):
+        holdingList = []
+        for y in range(num_players_team):
+           holdingList.append(theTeamsBalanced[x][y].get("name"))
+
+        theTeamsBalancedButJustNames.append(holdingList)
+
+    return theTeamsBalancedButJustNames
 
 
 def main():
     clean_the_data()
     balance_the_teams()
+    info_stripper_leave_just_name()
 
 
 if __name__ == '__main__':
